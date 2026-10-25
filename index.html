@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LX Website Design</title>
+  <meta name="description" content="Websites for Sydney's local businesses. Design, build, hosting and updates, with a fixed quote up front.">
+  <meta property="og:title" content="LX Website Design">
+  <meta property="og:description" content="Websites for Sydney's local businesses. Design, build, hosting and updates, with a fixed quote up front.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d5c63'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='%23fff' text-anchor='middle'%3ELX%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+  <style>
+    /* Layout: one column of bands; a shopfront "browser" card anchors the hero. */
+    :root {
+      --paper: #f4f6f5;
+      --surface: #ffffff;
+      --ink: #102027;
+      --muted: #52646b;
+      --line: #d9e1df;
+      --harbour: #0d5c63;
+      --harbour-ink: #ffffff;
+      --sun: #f2b84b;
+      --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+      --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+      --max: 1080px;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0e1719; --surface: #152225; --ink: #e8efed; --muted: #9fb1b2;
+        --line: #26383b; --harbour: #3fb3ae; --harbour-ink: #062124; --sun: #f2b84b;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body); }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+    .wrap {
+      max-width: var(--max); margin: 0 auto;
+      padding-left: max(20px, env(safe-area-inset-left, 0px));
+      padding-right: max(20px, env(safe-area-inset-right, 0px));
+    }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; text-wrap: balance; }
+    h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.01em; }
+    h3 { font-size: 21px; font-weight: 700; }
+    p { margin: 0; }
+    .eyebrow { font: 600 13px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--harbour); }
+
+    /* header */
+    header { padding-block: 22px; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 700 19px var(--display); }
+    .mark { width: 34px; height: 34px; border-radius: 9px; background: var(--harbour); color: var(--harbour-ink); display: grid; place-items: center; font: 800 15px var(--display); }
+    .header-cta { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--sun); padding-bottom: 2px; }
+
+    /* hero */
+    .hero { padding-block: 40px 72px; }
+    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(40px, 6.4vw, 72px); font-weight: 800; letter-spacing: -0.025em; margin-top: 14px; }
+    .hero h1 em { font-style: normal; color: var(--harbour); }
+    .lede { margin-top: 20px; font-size: 19px; color: var(--muted); max-width: 34em; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: 30px; }
+    .btn {
+      display: inline-block; background: var(--harbour); color: var(--harbour-ink); text-decoration: none;
+      font-weight: 600; padding: 14px 22px; border-radius: 10px;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .note { color: var(--muted); font-size: 15px; }
+
+    /* the shopfront card */
+    .shop { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px -30px rgba(16, 32, 39, .35); max-width: 100%; }
+    .shop-bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    .shop-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+    .url { margin-left: 8px; flex: 1; min-width: 0; font-size: 13px; color: var(--muted); background: var(--paper); border-radius: 6px; padding: 5px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .awning { height: 26px; background: repeating-linear-gradient(90deg, var(--harbour) 0 28px, var(--surface) 28px 56px); border-bottom: 1px solid var(--line); }
+    .shop-body { padding: 22px; display: grid; gap: 14px; }
+    .shop-title { font: 800 26px/1.1 var(--display); }
+    .shop-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
+    .chip.on { background: var(--sun); border-color: var(--sun); color: #102027; }
+    .hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .hours b { color: var(--ink); font-weight: 600; }
+    .shop-foot { font-size: 12px; color: var(--muted); padding: 0 22px 18px; }
+
+    /* sections */
+    section { padding-block: 72px; }
+    .band { background: var(--surface); border-block: 1px solid var(--line); }
+    .section-head { display: grid; gap: 12px; max-width: 40em; margin-bottom: 40px; }
+    .section-head p { color: var(--muted); }
+    .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+    .item { display: grid; gap: 10px; align-content: start; }
+    .item p { color: var(--muted); }
+    .icon { width: 44px; height: 44px; border-radius: 12px; background: var(--paper); border: 1px solid var(--line); display: grid; place-items: center; color: var(--harbour); }
+    .icon svg { width: 22px; height: 22px; }
+
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: step; }
+    .steps li { counter-increment: step; border-top: 3px solid var(--harbour); padding-top: 16px; display: grid; gap: 8px; align-content: start; }
+    .steps li::before { content: "Step " counter(step); font: 600 13px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--harbour); }
+    .steps p { color: var(--muted); font-size: 16px; }
+
+    .for { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .for span { padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-weight: 500; }
+
+    .price { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .price div { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 8px; align-content: start; }
+    .price .tag { font: 700 22px var(--display); }
+    .price p { color: var(--muted); }
+
+    .contact .wrap { display: grid; gap: 18px; justify-items: start; }
+    .contact h2 { font-size: clamp(32px, 5vw, 52px); max-width: 16em; }
+    .contact-lines { display: grid; gap: 6px; font-size: 19px; }
+    .contact-lines a { font-weight: 600; text-decoration-color: var(--sun); text-decoration-thickness: 2px; text-underline-offset: 4px; word-break: break-word; }
+
+    footer { padding-block: 28px 40px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+    @media (max-width: 860px) {
+      .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .grid3 { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      section { padding-block: 56px; }
+      .steps, .price { grid-template-columns: 1fr; }
+      .header-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="LX Website Design, home"><span class="mark" aria-hidden="true">LX</span>LX Website Design</a>
+      <a class="header-cta" href="#contact">Get a quote</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Websites for Sydney's local businesses</p>
+          <h1 id="hero-title">Your shop already has regulars. <em>Let the internet find it too.</em></h1>
+          <p class="lede">We design, build and look after websites for cafés, restaurants, trades and shops that don't have one yet. You get a fixed quote up front, a site that works on every phone, and someone to call when your hours or menu change.</p>
+          <div class="actions">
+            <a class="btn" href="mailto:liamduhigg@gmail.com?subject=Website%20quote">Email for a quote</a>
+            <span class="note">Free first chat, no obligation.</span>
+          </div>
+        </div>
+
+        <div class="shop" role="img" aria-label="Illustration of a simple small-business website showing a name, opening hours and buttons to call or get directions">
+          <div class="shop-bar"><i></i><i></i><i></i><span class="url">yourbusiness.com.au</span></div>
+          <div class="awning"></div>
+          <div class="shop-body">
+            <div class="shop-title">Your Business</div>
+            <div class="shop-row"><span class="chip on">Call now</span><span class="chip">Directions</span><span class="chip">Menu</span><span class="chip">Book</span></div>
+            <div class="hours">
+              <b>Mon–Fri</b><span>7:00 am – 3:00 pm</span>
+              <b>Sat</b><span>8:00 am – 2:00 pm</span>
+              <b>Sun</b><span>Closed</span>
+            </div>
+          </div>
+          <p class="shop-foot">Example layout. Yours is designed around your business.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="what-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What you get</p>
+          <h2 id="what-title">Everything a local customer looks for, on one tidy site</h2>
+        </div>
+        <div class="grid3">
+          <div class="item">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></span>
+            <h3>Design and build</h3>
+            <p>A site made for your business, not a stock template. Your hours, menu or services, photos, and a one-tap button to call or get directions.</p>
+          </div>
+          <div class="item">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+            <h3>Set up to be found</h3>
+            <p>Clear page titles, your address and a map link, and fast loading on mobile, so people searching nearby can find you and see you're open.</p>
+          </div>
+          <div class="item">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></span>
+            <h3>Hosting and updates</h3>
+            <p>We keep the site online and secure. When your prices, hours or specials change, send us a message and we update it for you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">From first chat to live site</h2>
+        </div>
+        <ol class="steps">
+          <li><h3>Chat</h3><p>We talk through your business, what customers ask you most, and what the site needs to do.</p></li>
+          <li><h3>Quote</h3><p>You get one fixed price for the build and an optional monthly fee for hosting and updates.</p></li>
+          <li><h3>Preview</h3><p>We build a draft you can open on your phone, and adjust it until it feels right.</p></li>
+          <li><h3>Launch</h3><p>The site goes live on your own web address, and we stay on hand for changes.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="who-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Who it's for</p>
+          <h2 id="who-title">Local businesses that customers can't find online yet</h2>
+          <p>If people ask "do you have a website?" and the answer is no, or the only page about you is a directory listing you didn't write, we can help.</p>
+        </div>
+        <div class="for">
+          <span>Cafés and restaurants</span><span>Takeaway and bakeries</span><span>Trades and repairs</span>
+          <span>Salons and barbers</span><span>Retail shops</span><span>Clinics and studios</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="price-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Pricing</p>
+          <h2 id="price-title">Two simple parts, quoted before we start</h2>
+        </div>
+        <div class="price">
+          <div>
+            <span class="tag">The build</span>
+            <p>A one-off fixed price for designing and building your site, agreed up front. Usually half to start and half at launch.</p>
+          </div>
+          <div>
+            <span class="tag">Hosting and updates</span>
+            <p>An optional monthly fee that keeps your site online and covers your everyday changes. Cancel any time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="eyebrow">Get a quote</p>
+        <h2 id="contact-title">Tell us about your business and we'll come back with a price.</h2>
+        <div class="contact-lines">
+          <a href="mailto:liamduhigg@gmail.com?subject=Website%20quote">liamduhigg@gmail.com</a>
+        </div>
+        <p class="note">Based in Sydney's south. Happy to meet in person.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>LX Website Design · Liam Duhigg · ABN 59753894010</span>
+      <span>Sydney, NSW</span>
+    </div>
+  </footer>
+</body>
+</html>
