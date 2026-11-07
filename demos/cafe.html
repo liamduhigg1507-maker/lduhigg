@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saltbush Kitchen · Café in Cronulla (demo)</title>
+  <meta name="description" content="Demo website by L Duhigg for a made-up café in Cronulla.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap">
+  <style>
+    :root {
+      --cream: #f7f1e6; --card: #fffaf1; --ink: #2b211b; --muted: #6e5d50; --line: #e6d9c6;
+      --clay: #c0603a; --clay-ink: #fff; --sage: #7d8f6a; --sea: #2f6f7a;
+      --serif: "Fraunces", Georgia, serif; --sans: "Outfit", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 400 17px/1.6 var(--sans); }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--sea); outline-offset: 3px; border-radius: 6px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+    p { margin: 0; }
+
+    .demo { background: var(--ink); color: #f7f1e6; font-size: 14px; text-align: center; padding: 9px 16px; }
+    .demo a { color: #f2c39d; font-weight: 600; }
+
+    nav { padding: 20px 0; }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .logo { font: 700 22px var(--serif); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .logo svg { width: 30px; height: 30px; color: var(--sage); }
+    .navlinks { display: flex; gap: 22px; font-weight: 500; }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover { color: var(--clay); }
+
+    .hero { padding: 36px 0 80px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .kicker { font-weight: 600; color: var(--sea); letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+    .hero h1 { font-size: clamp(44px, 7vw, 84px); margin-top: 12px; }
+    .hero h1 i { color: var(--clay); font-style: italic; font-weight: 500; }
+    .hero p.lede { margin-top: 18px; font-size: 19px; color: var(--muted); max-width: 30em; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+    .btn.solid { background: var(--clay); color: var(--clay-ink); }
+    .btn.ghost { border: 2px solid var(--ink); }
+    .open-now { margin-top: 22px; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: var(--muted); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px rgba(125,143,106,.25); }
+
+    /* illustrated "photo": a flat white on a table by the water */
+    .scene { aspect-ratio: 4/4.3; border-radius: 28px 28px 200px 28px; overflow: hidden; position: relative;
+      background: linear-gradient(#9fc6c9 0 46%, #2f6f7a 46% 60%, #e8d3b4 60%); }
+    .scene .sun { position: absolute; width: 90px; height: 90px; border-radius: 50%; background: #f6d79a; top: 12%; right: 16%; }
+    .scene svg { position: absolute; inset: auto 0 0 0; width: 100%; }
+
+    section { padding: 80px 0; }
+    .head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .head h2 { font-size: clamp(34px, 5vw, 54px); }
+    .head p { color: var(--muted); max-width: 26em; }
+
+    .menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .menu-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px; }
+    .menu-card h3 { font-size: 26px; margin-bottom: 14px; }
+    .menu-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .menu-card li { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; }
+    .menu-card li b { font-weight: 600; }
+    .menu-card li span { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--clay); }
+    .menu-card li small { grid-column: 1 / -1; color: var(--muted); font-size: 14px; line-height: 1.4; }
+    .tags { display: inline-flex; gap: 6px; margin-left: 6px; }
+    .tags em { font-style: normal; font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 5px; background: #e4e9dc; color: #4d5d3e; vertical-align: 2px; }
+
+    .story { background: var(--sea); color: #eef5f4; border-radius: 36px; margin: 0 20px; }
+    .story .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .story h2 { font-size: clamp(32px, 4.6vw, 50px); }
+    .story p { color: #cfe2e0; margin-top: 16px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat { background: rgba(255,255,255,.08); border-radius: 18px; padding: 20px; }
+    .stat b { display: block; font: 700 36px var(--serif); color: #fff; }
+    .stat span { font-size: 14px; color: #cfe2e0; }
+
+    .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; }
+    .panel h3 { font-size: 26px; margin-bottom: 16px; }
+    .hours { display: grid; grid-template-columns: auto 1fr; gap: 8px 22px; font-variant-numeric: tabular-nums; }
+    .hours dt { font-weight: 600; } .hours dd { margin: 0; color: var(--muted); }
+    .map { margin-top: 18px; height: 150px; border-radius: 16px; background:
+      linear-gradient(90deg, transparent 48%, #fff 48% 52%, transparent 52%),
+      linear-gradient(0deg, transparent 58%, #fff 58% 62%, transparent 62%),
+      linear-gradient(135deg, #dfe8dc, #cfe0e2); position: relative; }
+    .map::after { content: ""; position: absolute; left: 50%; top: 40%; width: 22px; height: 22px; background: var(--clay);
+      border-radius: 50% 50% 50% 0; transform: translate(-50%, -100%) rotate(-45deg); border: 3px solid #fff; }
+
+    footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    @media (max-width: 860px) {
+      .hero .wrap, .story .wrap, .visit .wrap { grid-template-columns: 1fr; }
+      .menu { grid-template-columns: 1fr; }
+      .navlinks { display: none; }
+      .story { margin: 0 12px; }
+    }
+    @media (max-width: 520px) { .stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .stat { padding: 14px 10px; } .stat b { font-size: 26px; } section { padding: 60px 0; } }
+  </style>
+</head>
+<body>
+  <div class="demo">Demo website by L Duhigg. Saltbush Kitchen is a made-up café. <a href="../index.html#contact">Want one like this?</a></div>
+
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3c2 5 2 9 0 13-2-4-2-8 0-13Zm0 13c4-3 8-4 12-3-3 3-7 4-12 3Zm0 0c-4-3-8-4-12-3 3 3 7 4 12 3Zm-1 1h2v12h-2z"/></svg>Saltbush Kitchen</a>
+      <div class="navlinks"><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Visit</a></div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Café · Cronulla · Since 2019</p>
+        <h1>Good coffee, <i>sandy feet</i> welcome.</h1>
+        <p class="lede">Brekkie and lunch a short walk from the beach. Single-origin coffee, house-baked sourdough and a menu that changes with what's good this week.</p>
+        <div class="btns">
+          <a class="btn solid" href="tel:0200000000">Call to book a table</a>
+          <a class="btn ghost" href="#visit">Get directions</a>
+        </div>
+        <p class="open-now"><span class="dot"></span>Open today 6:30 am – 2:30 pm</p>
+      </div>
+      <div class="scene" role="img" aria-label="Illustration of a coffee cup on a café table, with the ocean behind">
+        <span class="sun"></span>
+        <svg viewBox="0 0 400 260" aria-hidden="true">
+          <rect x="0" y="150" width="400" height="110" fill="#c79a6b"/>
+          <rect x="0" y="150" width="400" height="10" fill="#b38658"/>
+          <ellipse cx="200" cy="168" rx="92" ry="16" fill="#fffaf1"/>
+          <path d="M146 100h108l-10 62c-2 10-10 14-20 14h-48c-10 0-18-4-20-14z" fill="#fffaf1"/>
+          <path d="M254 112c22 0 26 30 2 34" fill="none" stroke="#fffaf1" stroke-width="10" stroke-linecap="round"/>
+          <ellipse cx="200" cy="102" rx="54" ry="10" fill="#8a5a3b"/>
+          <path d="M188 101c6-6 18-6 24 0-6 4-18 4-24 0z" fill="#f3dfc4"/>
+          <path d="M178 80c-8-12 8-18 0-30M200 76c-8-12 8-18 0-30M222 80c-8-12 8-18 0-30" fill="none" stroke="#fffaf1" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+          <circle cx="320" cy="170" r="22" fill="#e9b872"/><circle cx="314" cy="164" r="4" fill="#c98f45"/><circle cx="326" cy="174" r="3" fill="#c98f45"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="head">
+        <h2>On the menu</h2>
+        <p>A taste of what we cook. Ask about today's specials at the counter. <b>V</b> vegetarian, <b>GF</b> gluten-free option.</p>
+      </div>
+      <div class="menu">
+        <div class="menu-card">
+          <h3>Brekkie</h3>
+          <ul>
+            <li><b>Smashed avo<span class="tags"><em>V</em></span></b><span>$19</span><small>Sourdough, feta, lemon, dukkah, poached egg</small></li>
+            <li><b>Big Saltbush</b><span>$26</span><small>Eggs your way, bacon, mushrooms, greens, hash brown</small></li>
+            <li><b>Ricotta hotcakes<span class="tags"><em>V</em></span></b><span>$21</span><small>Seasonal fruit, honeycomb butter, maple</small></li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <h3>Lunch</h3>
+          <ul>
+            <li><b>Fish tacos<span class="tags"><em>GF</em></span></b><span>$24</span><small>Market fish, slaw, pickled onion, chipotle mayo</small></li>
+            <li><b>Chicken schnitty roll</b><span>$20</span><small>Milk bun, lettuce, tomato, aioli, chips</small></li>
+            <li><b>Grain bowl<span class="tags"><em>V</em><em>GF</em></span></b><span>$22</span><small>Roast pumpkin, quinoa, hummus, greens, seeds</small></li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <h3>Coffee &amp; more</h3>
+          <ul>
+            <li><b>Espresso, long black</b><span>$4.5</span><small>House blend or this week's single origin</small></li>
+            <li><b>Flat white, latte, cap</b><span>$5.2</span><small>Oat, almond or soy +$0.8</small></li>
+            <li><b>Cold-pressed juice</b><span>$9</span><small>Apple, ginger, mint or watermelon, lime</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <div>
+        <h2>A local café run by locals.</h2>
+        <p>We opened Saltbush to be the place we wanted after an early swim: quick coffee, a proper breakfast, and someone who remembers your order. Dogs welcome on the deck.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>6:30</b><span>doors open daily</span></div>
+        <div class="stat"><b>3 min</b><span>walk to the beach</span></div>
+        <div class="stat"><b>48h</b><span>sourdough ferment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="panel">
+        <h3>Opening hours</h3>
+        <dl class="hours">
+          <dt>Mon – Fri</dt><dd>6:30 am – 2:30 pm</dd>
+          <dt>Sat – Sun</dt><dd>7:00 am – 3:00 pm</dd>
+          <dt>Public hols</dt><dd>7:00 am – 1:00 pm</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Find us</h3>
+        <p>12 Example Street, Cronulla NSW 2230<br>Street parking, 2 min from Cronulla station.</p>
+        <div class="map" role="img" aria-label="Map placeholder"></div>
+        <div class="btns"><a class="btn solid" href="tel:0200000000">(02) 0000 0000</a><a class="btn ghost" href="#">Open in Maps</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap"><span>© Saltbush Kitchen (demo business)</span><span>Website by <a href="../index.html">L Duhigg</a></span></div>
+  </footer>
+</body>
+</html>
