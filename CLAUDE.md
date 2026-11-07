@@ -21,9 +21,13 @@ sections whenever something changes.
   at most one clear question, and otherwise just get on with it.
 - Writes in plain Australian English. Site copy uses en-AU spelling.
 - Cloud sessions have no memory between chats. This file is the memory.
-- Cloud network is restricted: Instagram and many connectors (Canva, HubSpot,
-  Notion, Wix, Square, etc.) are blocked. Ask him for screenshots or pasted text instead.
-- Connected and usable: GitHub, Stripe, Gmail, Google Calendar, Google Drive, Shopify.
+- Cloud network: the Default environment was switched to **unrestricted** on
+  2026-11-07, so Instagram and 21st.dev are reachable. Instagram reels still often
+  hit a login wall, so ask for screenshots or the caption when a fetch fails.
+- Connectors that worked on 2026-11-07: GitHub, Stripe, Gmail, Google Calendar,
+  Google Drive, Shopify. Canva, HubSpot, Notion, Wix, Square, etc. failed with a
+  network error before the network change; check again in a new session.
+- No laptop folders shared via Remote Control yet.
 
 ## The repo
 
