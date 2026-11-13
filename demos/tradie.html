@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shire Spark Electrical · Electrician, Sutherland Shire (demo)</title>
+  <meta name="description" content="Demo website by L Duhigg for a made-up electrician in the Sutherland Shire.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+  <style>
+    :root {
+      --navy: #0f1d2e; --navy-2: #172a40; --steel: #8ea3b8; --white: #ffffff; --off: #eef2f6;
+      --volt: #ffc21a; --volt-ink: #0f1d2e; --ink: #0f1d2e; --muted: #4f6072; --line: #d6dee7;
+      --cond: "Barlow Condensed", "Arial Narrow", sans-serif; --sans: "Barlow", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--off); color: var(--ink); font: 400 17px/1.55 var(--sans); }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--volt); outline-offset: 3px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3 { font-family: var(--cond); text-transform: uppercase; line-height: .95; margin: 0; letter-spacing: .01em; }
+    p { margin: 0; }
+
+    .demo { background: var(--volt); color: var(--volt-ink); font-size: 14px; text-align: center; padding: 8px 16px; font-weight: 500; }
+    .demo a { font-weight: 700; }
+
+    .top { background: var(--navy); color: var(--white); }
+    .top nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; font: 800 26px var(--cond); text-transform: uppercase; text-decoration: none; letter-spacing: .02em; }
+    .bolt { width: 36px; height: 36px; background: var(--volt); color: var(--navy); display: grid; place-items: center; clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%); }
+    .bolt svg { width: 20px; height: 20px; }
+    .navcall { font: 700 20px var(--cond); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .navcall small { font: 500 13px var(--sans); color: var(--steel); text-transform: none; }
+
+    .hero { padding: 48px 0 0; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #2c4560; padding: 6px 12px; font-size: 14px; color: var(--steel); }
+    .badge b { color: var(--volt); }
+    .hero h1 { font-size: clamp(54px, 8.6vw, 104px); margin-top: 18px; }
+    .hero h1 span { color: var(--volt); }
+    .hero .lede { font-size: 19px; color: #c9d5e1; margin-top: 18px; max-width: 32em; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 48px; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 24px; font: 700 20px var(--cond); text-transform: uppercase; letter-spacing: .03em; text-decoration: none; }
+    .btn.volt { background: var(--volt); color: var(--volt-ink); }
+    .btn.line { border: 2px solid var(--white); }
+    .btn.dark { background: var(--navy); color: var(--white); }
+    .promise { background: var(--navy-2); padding: 26px; border-top: 4px solid var(--volt); display: grid; gap: 14px; margin-bottom: 0; }
+    .promise div { display: flex; gap: 12px; align-items: baseline; }
+    .promise b { font: 800 30px var(--cond); color: var(--volt); min-width: 84px; white-space: nowrap; }
+    .promise span { color: #c9d5e1; font-size: 15px; }
+
+    .strip { background: var(--volt); color: var(--volt-ink); }
+    .strip .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 16px; font: 700 19px var(--cond); text-transform: uppercase; letter-spacing: .04em; }
+
+    section { padding: 80px 0; }
+    .label { font: 700 15px var(--cond); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+    .sec-h { font-size: clamp(40px, 6vw, 68px); margin: 8px 0 36px; }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 2px solid var(--line); }
+    .svc { background: var(--white); padding: 28px; display: grid; gap: 10px; align-content: start; }
+    .svc .n { font: 800 18px var(--cond); color: var(--steel); }
+    .svc h3 { font-size: 30px; }
+    .svc p { color: var(--muted); }
+    .svc .from { font-weight: 600; color: var(--ink); }
+
+    .areas { background: var(--navy); color: var(--white); }
+    .areas .label { color: var(--steel); }
+    .areas .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
+    .suburbs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .suburbs span { border: 1px solid #2c4560; padding: 8px 14px; font-weight: 500; }
+    .areas p { color: #c9d5e1; }
+
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .review { background: var(--white); border: 1px solid var(--line); padding: 26px; display: grid; gap: 14px; }
+    .stars { color: #e0a300; letter-spacing: 2px; }
+    .review cite { font-style: normal; font-weight: 600; font-size: 15px; }
+    .review cite small { display: block; font-weight: 400; color: var(--muted); }
+    .note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+    .quote .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    form { background: var(--white); border: 1px solid var(--line); padding: 28px; display: grid; gap: 14px; }
+    label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+    input, select, textarea { font: inherit; padding: 12px 14px; border: 2px solid var(--line); background: var(--off); color: var(--ink); border-radius: 0; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--navy); }
+    button.btn { border: 0; cursor: pointer; justify-content: center; }
+    .lic { display: grid; gap: 8px; margin-top: 20px; color: var(--muted); }
+
+    footer { background: var(--navy); color: var(--steel); font-size: 14px; padding: 28px 0 90px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    .callbar { display: none; }
+    @media (max-width: 900px) {
+      .hero-grid, .areas .wrap, .quote .wrap { grid-template-columns: 1fr; }
+      .services, .reviews { grid-template-columns: 1fr; }
+      .promise { margin-bottom: 0; }
+      .navcall small { display: none; }
+      .callbar { display: flex; position: fixed; inset: auto 0 0 0; z-index: 10; }
+      .callbar a { flex: 1; text-align: center; justify-content: center; padding: 16px; }
+    }
+    @media (max-width: 520px) { section { padding: 60px 0; } .navcall { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="demo">Demo website by L Duhigg. Shire Spark is a made-up business. <a href="../index.html#contact">Want one like this?</a></div>
+
+  <div class="top">
+    <div class="wrap">
+      <nav>
+        <a class="logo" href="#"><span class="bolt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>Shire Spark</a>
+        <a class="navcall" href="tel:0400000000"><small>24/7 emergencies</small>0400 000 000</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="badge">Licensed electrician · Lic. <b>000000C</b></span>
+          <h1>Power out?<br><span>We'll sort it.</span></h1>
+          <p class="lede">Local electrician for homes and small businesses across the Sutherland Shire. Upfront prices, tidy work, and we turn up when we say we will.</p>
+          <div class="cta">
+            <a class="btn volt" href="tel:0400000000">Call now</a>
+            <a class="btn line" href="#quote">Free quote</a>
+          </div>
+        </div>
+        <div class="promise">
+          <div><b>60 min</b><span>emergency call-out across the Shire</span></div>
+          <div><b>$0</b><span>quotes. Price agreed before we start</span></div>
+          <div><b>10 yr</b><span>workmanship guarantee on every job</span></div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="strip"><div class="wrap"><span>Fully licensed &amp; insured</span><span>Same-day service</span><span>Seniors discount</span><span>Card on site</span></div></div>
+
+  <section>
+    <div class="wrap">
+      <p class="label">What we do</p>
+      <h2 class="sec-h">Services</h2>
+      <div class="services">
+        <div class="svc"><span class="n">01</span><h3>Fault finding</h3><p>Tripping safety switch, flickering lights, dead power points. Found and fixed.</p><p class="from">From $129 call-out</p></div>
+        <div class="svc"><span class="n">02</span><h3>Switchboards</h3><p>Old fuse boxes swapped for modern boards with safety switches on every circuit.</p><p class="from">From $1,450</p></div>
+        <div class="svc"><span class="n">03</span><h3>Lights &amp; power</h3><p>Downlights, outdoor lighting, extra power points and USB outlets.</p><p class="from">From $95 per point</p></div>
+        <div class="svc"><span class="n">04</span><h3>Smoke alarms</h3><p>Hardwired, interconnected alarms that meet NSW rules for sales and rentals.</p><p class="from">From $165 each</p></div>
+        <div class="svc"><span class="n">05</span><h3>EV chargers</h3><p>Home charger supply and install, with a check that your switchboard can take it.</p><p class="from">Quote on site</p></div>
+        <div class="svc"><span class="n">06</span><h3>Shops &amp; offices</h3><p>Fit-outs, test and tag, and after-hours work so you don't lose a day of trade.</p><p class="from">Quote on site</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="areas">
+    <div class="wrap">
+      <div>
+        <p class="label">Where we work</p>
+        <h2 class="sec-h">Across the Shire</h2>
+        <p>Based in Sutherland and out on the road every day. Not on the list? Call us, we probably still come to you.</p>
+      </div>
+      <div class="suburbs">
+        <span>Sutherland</span><span>Miranda</span><span>Caringbah</span><span>Cronulla</span><span>Kirrawee</span><span>Gymea</span><span>Jannali</span><span>Engadine</span><span>Menai</span><span>Sylvania</span><span>Kareela</span><span>Woolooware</span><span>Bundeena</span><span>Loftus</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="label">Reviews</p>
+      <h2 class="sec-h">What locals say</h2>
+      <div class="reviews">
+        <div class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p>Power went out at 9pm with a newborn in the house. Here in 40 minutes and fixed in 20. Lifesavers.</p><cite>Sample review<small>Gymea</small></cite></div>
+        <div class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p>Quoted for the switchboard, did it for exactly that, and cleaned up after. Would use again.</p><cite>Sample review<small>Caringbah</small></cite></div>
+        <div class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p>Did our café's lights after close so we didn't miss a morning. Easy to deal with.</p><cite>Sample review<small>Cronulla</small></cite></div>
+      </div>
+      <p class="note">Reviews on this demo are examples. A real site would show your own Google reviews.</p>
+    </div>
+  </section>
+
+  <section class="quote" id="quote">
+    <div class="wrap">
+      <div>
+        <p class="label">Get a quote</p>
+        <h2 class="sec-h">Tell us the job</h2>
+        <p style="color:var(--muted)">We reply within 2 hours during business hours. For anything urgent, just call.</p>
+        <div class="lic"><span>NSW Contractor Licence 000000C</span><span>ABN 00 000 000 000</span><span>Mon–Sat 7am–5pm · Emergencies 24/7</span></div>
+        <div class="cta"><a class="btn dark" href="tel:0400000000">0400 000 000</a></div>
+      </div>
+      <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks, demo only';">
+        <label>Name<input autocomplete="name" required></label>
+        <label>Phone<input type="tel" autocomplete="tel" required></label>
+        <label>Suburb<input autocomplete="address-level2"></label>
+        <label>What do you need?
+          <select><option>Fault or power out</option><option>Switchboard</option><option>Lights or power points</option><option>Smoke alarms</option><option>EV charger</option><option>Something else</option></select>
+        </label>
+        <label>Details<textarea rows="3"></textarea></label>
+        <button class="btn volt" type="submit">Send request</button>
+      </form>
+    </div>
+  </section>
+
+  <footer><div class="wrap"><span>© Shire Spark Electrical (demo business)</span><span>Website by <a href="../index.html">L Duhigg</a></span></div></footer>
+
+  <div class="callbar"><a class="btn volt" href="tel:0400000000">Call now</a><a class="btn dark" href="#quote">Free quote</a></div>
+</body>
+</html>

@@ -43,7 +43,7 @@ sections whenever something changes.
 - [ ] Domain bought (e.g. lduhigg.com.au; .com.au needs the ABN)
 - [ ] Google Business Profile for L Duhigg ("Website designer")
 - [ ] Real prices on the site ("starting from")
-- [ ] 2–3 demo sites for made-up businesses (café, tradie, barber) to show prospects
+- [x] 3 demo sites in `demos/` (Saltbush Kitchen café, Shire Spark Electrical, Kingsway Barber Co.), linked from the "Example sites" section of `index.html`
 - [ ] Contact form on the site
 - [ ] Stripe payment link for deposits
 - [ ] Prospect list of local businesses with no website + walk-in pitch

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kingsway Barber Co. · Barber in Miranda (demo)</title>
+  <meta name="description" content="Demo website by L Duhigg for a made-up barber shop in Miranda.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700&display=swap">
+  <style>
+    :root {
+      --bg: #121110; --panel: #1b1a18; --line: #2e2b27; --text: #efe8dc; --muted: #a39b8e;
+      --brass: #c9a227; --brass-ink: #121110; --red: #b5452f;
+      --serif: "Instrument Serif", Georgia, serif; --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 400 16px/1.6 var(--sans); }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1; margin: 0; }
+    p { margin: 0; }
+
+    .demo { background: var(--brass); color: var(--brass-ink); font-size: 14px; text-align: center; padding: 8px 16px; font-weight: 500; }
+    .demo a { font-weight: 700; }
+
+    nav { border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; padding-block: 18px; gap: 16px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 12px; font: 400 26px var(--serif); }
+    .pole { width: 12px; height: 34px; border-radius: 6px; background: repeating-linear-gradient(135deg, var(--red) 0 6px, var(--text) 6px 12px, #2d4f7c 12px 18px, var(--text) 18px 24px); border: 2px solid var(--brass); }
+    .links { display: flex; gap: 26px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; }
+    .links a { text-decoration: none; color: var(--muted); }
+    .links a:hover { color: var(--text); }
+    .book { background: var(--brass); color: var(--brass-ink); padding: 11px 18px; font-weight: 700; text-decoration: none; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+
+    .hero { padding: 80px 0 64px; text-align: center; position: relative; }
+    .est { font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--brass); display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .est::before, .est::after { content: ""; width: 40px; height: 1px; background: var(--brass); }
+    .hero h1 { font-size: clamp(60px, 12vw, 148px); margin-top: 20px; letter-spacing: -0.02em; }
+    .hero h1 em { color: var(--brass); }
+    .hero p { color: var(--muted); font-size: 18px; max-width: 30em; margin: 20px auto 0; }
+    .hero .row { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn { padding: 15px 26px; font-weight: 700; text-decoration: none; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; }
+    .btn.brass { background: var(--brass); color: var(--brass-ink); }
+    .btn.outline { border: 1px solid var(--muted); }
+    .walkins { margin-top: 26px; font-size: 14px; color: var(--muted); }
+    .walkins b { color: var(--text); font-weight: 500; }
+
+    section { padding: 80px 0; border-top: 1px solid var(--line); }
+    .sec-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    .sec-head h2 { font-size: clamp(44px, 7vw, 76px); }
+    .sec-head p { color: var(--muted); max-width: 24em; }
+
+    .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+    .price { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 12px; padding: 18px 0; border-bottom: 1px dashed var(--line); }
+    .price h3 { font-size: 28px; }
+    .price .fill { border-bottom: 1px dotted #4a453e; transform: translateY(-6px); }
+    .price b { font: 400 28px var(--serif); color: var(--brass); font-variant-numeric: tabular-nums; }
+    .price small { grid-column: 1 / -1; color: var(--muted); font-size: 14px; margin-top: -6px; }
+
+    .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .barber { background: var(--panel); border: 1px solid var(--line); }
+    .portrait { aspect-ratio: 4 / 3; display: grid; place-items: center; background: radial-gradient(circle at 50% 50%, #3a352e 0 30%, transparent 31%), linear-gradient(#24221f, #1b1a18); }
+    .portrait span { font: 400 64px var(--serif); color: var(--brass); }
+    .barber div { padding: 20px; }
+    .barber h3 { font-size: 30px; }
+    .barber p { color: var(--muted); font-size: 15px; margin-top: 6px; }
+
+    .info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--panel); border: 1px solid var(--line); padding: 28px; }
+    .card h3 { font-size: 30px; margin-bottom: 14px; }
+    .card dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin: 0; font-variant-numeric: tabular-nums; }
+    .card dt { color: var(--text); } .card dd { margin: 0; color: var(--muted); }
+    .card p { color: var(--muted); }
+    .card a.btn { display: inline-block; margin-top: 18px; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    @media (max-width: 860px) {
+      .links { display: none; }
+      .prices, .team, .info { grid-template-columns: 1fr; }
+      .team { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .barber div { padding: 12px; } .barber h3 { font-size: 22px; } .barber p { font-size: 13px; }
+      .portrait span { font-size: 40px; }
+    }
+    @media (max-width: 520px) {
+      section { padding: 60px 0; } .hero { padding: 56px 0 48px; }
+      .team { grid-template-columns: 1fr; }
+      .barber { display: grid; grid-template-columns: 96px 1fr; }
+      .portrait { aspect-ratio: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">Demo website by L Duhigg. Kingsway Barber Co. is a made-up shop. <a href="../index.html#contact">Want one like this?</a></div>
+
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#"><span class="pole" aria-hidden="true"></span>Kingsway Barber Co.</a>
+      <div class="links"><a href="#prices">Prices</a><a href="#team">Barbers</a><a href="#visit">Visit</a></div>
+      <a class="book" href="#visit">Book</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="est">Miranda · Est. 2016</p>
+      <h1>Sharp cuts,<br><em>no fuss.</em></h1>
+      <p>Classic and modern men's cuts, skin fades and hot towel shaves. Book online in thirty seconds or just walk in.</p>
+      <div class="row"><a class="btn brass" href="#visit">Book a cut</a><a class="btn outline" href="#prices">See prices</a></div>
+      <p class="walkins"><b>Walk-ins welcome</b> · usual wait under 20 minutes</p>
+    </div>
+  </header>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="sec-head"><h2>Prices</h2><p>Card, cash and tap. Kids under 12 and seniors get $5 off any cut.</p></div>
+      <div class="prices">
+        <div class="price"><h3>Haircut</h3><span class="fill"></span><b>$40</b><small>Scissor or clipper, wash and style</small></div>
+        <div class="price"><h3>Skin fade</h3><span class="fill"></span><b>$45</b><small>Fade to the skin, finished with a razor line</small></div>
+        <div class="price"><h3>Beard trim</h3><span class="fill"></span><b>$25</b><small>Shape, line-up and beard oil</small></div>
+        <div class="price"><h3>Cut &amp; beard</h3><span class="fill"></span><b>$60</b><small>The full tidy-up</small></div>
+        <div class="price"><h3>Hot towel shave</h3><span class="fill"></span><b>$45</b><small>Straight razor, hot towels, cold finish</small></div>
+        <div class="price"><h3>Buzz cut</h3><span class="fill"></span><b>$25</b><small>One length all over</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap">
+      <div class="sec-head"><h2>The barbers</h2><p>Pick your barber when you book, or take the next chair.</p></div>
+      <div class="team">
+        <div class="barber"><div class="portrait" aria-hidden="true"><span>M</span></div><div><h3>Marco</h3><p>Owner. Fades and classic cuts, 15 years on the tools.</p></div></div>
+        <div class="barber"><div class="portrait" aria-hidden="true"><span>J</span></div><div><h3>Jess</h3><p>Textured crops, long hair and kids' cuts.</p></div></div>
+        <div class="barber"><div class="portrait" aria-hidden="true"><span>A</span></div><div><h3>Ali</h3><p>Beards and hot towel shaves. Sharpest line-ups in the Shire.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <div class="sec-head"><h2>Visit</h2></div>
+      <div class="info">
+        <div class="card"><h3>Hours</h3>
+          <dl><dt>Mon</dt><dd>Closed</dd><dt>Tue – Wed</dt><dd>9am – 6pm</dd><dt>Thu – Fri</dt><dd>9am – 8pm</dd><dt>Sat</dt><dd>8am – 4pm</dd><dt>Sun</dt><dd>9am – 2pm</dd></dl>
+        </div>
+        <div class="card"><h3>Find us</h3><p>Shop 4, 00 Example Road<br>Miranda NSW 2228<br>Free parking out the back.</p><a class="btn outline" href="#">Directions</a></div>
+        <div class="card"><h3>Book</h3><p>Choose your barber and time online, or give us a call.</p><a class="btn brass" href="#">Book online</a><p style="margin-top:14px"><a href="tel:0200000000">(02) 0000 0000</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="wrap"><span>© Kingsway Barber Co. (demo business)</span><span>Website by <a href="../index.html">L Duhigg</a></span></div></footer>
+</body>
+</html>

@@ -112,6 +112,24 @@
     .price .tag { font: 700 22px var(--display); }
     .price p { color: var(--muted); }
 
+    .ruled { border-top: 1px solid var(--line); }
+    .work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .work-card { text-decoration: none; display: grid; gap: 14px; }
+    .thumb { aspect-ratio: 4 / 3; border-radius: 14px; border: 1px solid var(--line); display: flex; align-items: flex-end; padding: 22px; overflow: hidden; transition: transform .2s ease; }
+    .work-card:hover .thumb { transform: translateY(-3px); }
+    @media (prefers-reduced-motion: reduce) { .thumb { transition: none; } }
+    .thumb b { font-size: 26px; line-height: 1.05; }
+    .thumb i { font-style: normal; }
+    .thumb.cafe { background: #f7f1e6; color: #2b211b; }
+    .thumb.cafe b { font-family: Georgia, serif; } .thumb.cafe i { color: #c0603a; font-style: italic; }
+    .thumb.tradie { background: #0f1d2e; color: #fff; border-color: #0f1d2e; }
+    .thumb.tradie b { font: 800 30px/0.95 "Arial Narrow", Arial, sans-serif; text-transform: uppercase; } .thumb.tradie i { color: #ffc21a; }
+    .thumb.barber { background: #121110; color: #efe8dc; border-color: #121110; }
+    .thumb.barber b { font: 400 30px/1 Georgia, serif; } .thumb.barber i { color: #c9a227; font-style: italic; }
+    .work-meta { display: grid; gap: 2px; }
+    .work-meta strong { font: 700 19px var(--display); }
+    .work-meta span { color: var(--muted); font-size: 15px; }
+
     .contact .wrap { display: grid; gap: 18px; justify-items: start; }
     .contact h2 { font-size: clamp(32px, 5vw, 52px); max-width: 16em; }
     .contact-lines { display: grid; gap: 6px; font-size: 19px; }
@@ -122,7 +140,7 @@
 
     @media (max-width: 860px) {
       .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
-      .grid3 { grid-template-columns: 1fr; }
+      .grid3, .work { grid-template-columns: 1fr; }
       .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 560px) {
@@ -226,7 +244,31 @@
       </div>
     </section>
 
-    <section aria-labelledby="price-title">
+    <section aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Example sites</p>
+          <h2 id="work-title">See what yours could look like</h2>
+          <p>Three demo sites for made-up local businesses. Open them on your phone; that's where your customers will see yours.</p>
+        </div>
+        <div class="work">
+          <a class="work-card" href="demos/cafe.html">
+            <span class="thumb cafe" aria-hidden="true"><b>Good coffee, <i>sandy feet</i> welcome.</b></span>
+            <span class="work-meta"><strong>Saltbush Kitchen</strong><span>Café · Cronulla</span></span>
+          </a>
+          <a class="work-card" href="demos/tradie.html">
+            <span class="thumb tradie" aria-hidden="true"><b>Power out? <i>We'll sort it.</i></b></span>
+            <span class="work-meta"><strong>Shire Spark Electrical</strong><span>Electrician · Sutherland Shire</span></span>
+          </a>
+          <a class="work-card" href="demos/barber.html">
+            <span class="thumb barber" aria-hidden="true"><b>Sharp cuts, <i>no fuss.</i></b></span>
+            <span class="work-meta"><strong>Kingsway Barber Co.</strong><span>Barber · Miranda</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ruled" aria-labelledby="price-title">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Pricing</p>
